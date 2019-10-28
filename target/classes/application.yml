@@ -1,0 +1,6 @@
+## YAML Template.
+#---
+line.bot:
+  channel-token: c9OO4JDTXBdOiYidYzTtQATuGzsx5IHMfa8b5V2ddF4sF5nPiGFclMRvNxyGFvIjGdwn0WSKV9vT/xc6yL/AI/47sV5wGvC5VeR/XpmU+IzVDybDZdBKu5KIIDDmypaiuXmte7pfu5DVB5hbvobHjQdB04t89/1O/w1cDnyilFU=
+  channel-secret: afbb83df3a8b5d9dcd3ff97c8f2d6d8d
+  handler.path: /callback
