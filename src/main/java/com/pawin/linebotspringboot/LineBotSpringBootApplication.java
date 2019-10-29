@@ -10,17 +10,17 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@LineMessageHandler
+//@LineMessageHandler
 public class LineBotSpringBootApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(LineBotSpringBootApplication.class, args);
 	}
 
-        @EventMapping
-        public Message handleTexMessage(MessageEvent<TextMessageContent> e){
-            System.out.println("event : " + e);
-            TextMessageContent message =  e.getMessage();
-            return new TextMessage(message.getText());
-        }
+//        @EventMapping
+//        public Message handleTexMessage(MessageEvent<TextMessageContent> e){
+//            System.out.println("event : " + e);
+//            TextMessageContent message =  e.getMessage();
+//            return new TextMessage(message.getText());
+//        }
 }
