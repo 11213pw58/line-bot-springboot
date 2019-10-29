@@ -8,8 +8,10 @@ package com.pawin.linebotspringboot;
 import com.linecorp.bot.client.LineMessagingClient;
 import com.linecorp.bot.model.ReplyMessage;
 import com.linecorp.bot.model.event.MessageEvent;
+import com.linecorp.bot.model.event.message.StickerMessageContent;
 import com.linecorp.bot.model.event.message.TextMessageContent;
 import com.linecorp.bot.model.message.Message;
+import com.linecorp.bot.model.message.StickerMessage;
 import com.linecorp.bot.model.message.TextMessage;
 import com.linecorp.bot.model.profile.UserProfileResponse;
 import com.linecorp.bot.model.response.BotApiResponse;
@@ -36,6 +38,7 @@ public class LineBotController {
     @Autowired
     private LineMessagingClient lineMessagingClient;
     
+    //send text 
     @EventMapping
     public void handleTextMessage(MessageEvent<TextMessageContent> e){//public Message handleTextMessage(MessageEvent<TextMessageContent> e){
         log.info(e.toString());
@@ -98,5 +101,15 @@ public class LineBotController {
         } catch (InterruptedException | ExecutionException e) {
             throw new RuntimeException(e);
         }
+    }
+    
+    //send sticker
+    @EventMapping
+    public void handleStickerMessage(MessageEvent<StickerMessageContent> event){
+        log.info(event.toString());
+        StickerMessageContent message = event.getMessage();
+        reply(event.getReplyToken(), new StickerMessage(
+                message.getPackageId(), message.getStickerId()
+        ));
     }
 }
