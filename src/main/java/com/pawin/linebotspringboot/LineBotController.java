@@ -8,8 +8,10 @@ package com.pawin.linebotspringboot;
 import com.linecorp.bot.client.LineMessagingClient;
 import com.linecorp.bot.model.ReplyMessage;
 import com.linecorp.bot.model.event.MessageEvent;
+import com.linecorp.bot.model.event.message.LocationMessageContent;
 import com.linecorp.bot.model.event.message.StickerMessageContent;
 import com.linecorp.bot.model.event.message.TextMessageContent;
+import com.linecorp.bot.model.message.LocationMessage;
 import com.linecorp.bot.model.message.Message;
 import com.linecorp.bot.model.message.StickerMessage;
 import com.linecorp.bot.model.message.TextMessage;
@@ -17,15 +19,18 @@ import com.linecorp.bot.model.profile.UserProfileResponse;
 import com.linecorp.bot.model.response.BotApiResponse;
 import com.linecorp.bot.spring.boot.annotation.EventMapping;
 import com.linecorp.bot.spring.boot.annotation.LineMessageHandler;
+import com.sun.xml.internal.bind.Locatable;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
+import javax.tools.DocumentationTool;
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfigurationPackage;
+import org.springframework.cglib.core.Local;
 
 /**
  *
@@ -110,6 +115,18 @@ public class LineBotController {
         StickerMessageContent message = event.getMessage();
         reply(event.getReplyToken(), new StickerMessage(
                 message.getPackageId(), message.getStickerId()
+        ));
+    }
+    
+    //send location
+    @EventMapping
+    public void handleLocationMessage(MessageEvent<LocationMessageContent> event){
+        log.info(event.toString());
+        LocationMessageContent message = event.getMessage();
+        reply(event.getReplyToken(), new LocationMessage((message.getTitle()==null)?"Location replied": message.getTitle()
+                , message.getAddress()
+                , message.getLatitude()
+                , message.getLongitude()
         ));
     }
 }
