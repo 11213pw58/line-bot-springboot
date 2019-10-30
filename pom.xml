@@ -48,12 +48,13 @@
                     <version>1.18.4</version>
                     <type>jar</type>
                 </dependency>
-	 <dependency>
-	  <groupId>Ab</groupId>
-	  <artifactId>Ab</artifactId>
-	  <version>1.0</version>
-	  <type>jar</type>
-	 </dependency>
+<!--                <dependency>
+                    <groupId>Ab</groupId>
+                    <artifactId>Ab</artifactId>
+                    <version>1.0</version>
+                    <scope>system</scope>
+                    <type>jar</type>
+                </dependency>-->
 	</dependencies>
 
 	<build>

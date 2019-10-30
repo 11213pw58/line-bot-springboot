@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.pawin.linebotspringboot.LineBotSpringBootApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.052 s - in com.pawin.linebotspringboot.LineBotSpringBootApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.955 s - in com.pawin.linebotspringboot.LineBotSpringBootApplicationTests
