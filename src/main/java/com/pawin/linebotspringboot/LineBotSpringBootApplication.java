@@ -13,8 +13,9 @@ import java.nio.file.Files;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
+
 //@LineMessageHandler
+@SpringBootApplication
 public class LineBotSpringBootApplication {
 
         static Path downloadedContentDir;
