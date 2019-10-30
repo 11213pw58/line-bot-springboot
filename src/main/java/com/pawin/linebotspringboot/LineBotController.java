@@ -142,7 +142,7 @@ public class LineBotController {
         ));
     }
     
-    //send Image
+    //send Image from user
     @EventMapping
     public void handleImageMessage(MessageEvent<ImageMessageContent> event) {
         log.info(event.toString());
@@ -155,9 +155,7 @@ public class LineBotController {
             DownloadedContent jpg = saveContent("jpg", response);
             DownloadedContent previewImage = createTempFile("jpg");
 
-            system("convert", "-resize", "240x",
-                    jpg.path.toString(),
-                    previewImage.path.toString());
+            system("convert", "-resize", "242x", jpg.path.toString(), previewImage.path.toString());
 
             reply(replyToken, new ImageMessage(jpg.getUri(), previewImage.getUri()));
 
@@ -209,7 +207,7 @@ public class LineBotController {
         return ServletUriComponentsBuilder.fromCurrentContextPath()
                 .path(path).toUriString();
     }
-
+    //class download Content
     @Value
     public static class DownloadedContent {
         Path path;
